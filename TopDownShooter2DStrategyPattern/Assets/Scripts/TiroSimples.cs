@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class TiroSimples : Arma, IArma
 {
-    [SerializeField] float speed;
+    float speed;
     private Transform firePoint;
 
     // Start is called before the first frame update
     void Start()
     {
         firePoint = GetComponentInChildren<Transform>().GetChild(0);
+        speed = 10;
+        damage = 1;
     }
 
     public void Atirar()
