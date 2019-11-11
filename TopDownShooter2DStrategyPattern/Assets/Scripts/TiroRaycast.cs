@@ -40,6 +40,11 @@ public class TiroRaycast : Arma, IArma
                 linha.SetPosition(0, firePoint.position);
                 linha.SetPosition(1, hitInfo.point);
             }
+            else
+            {
+                linha.SetPosition(0, firePoint.position);
+                linha.SetPosition(1, firePoint.position + firePoint.up * 100);
+            }
         }
         else
         {

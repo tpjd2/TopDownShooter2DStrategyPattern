@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] string nomeArma;
 
-    float moviment;
+    float movement;
     Rigidbody2D rb2d;
     Vector3 mousePosition;
     Quaternion rotation;
@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
         transform.rotation = rotation;
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
-        moviment = Input.GetAxis("Vertical");
-        rb2d.AddForce(gameObject.transform.up * moviment * speed);
+        movement = Input.GetAxis("Vertical");
+        rb2d.AddForce(gameObject.transform.up * movement * speed);
     }
 
     public void ConfigArma(string tag)
@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Enemy"))
-            ConfigArma(collision.tag);
+        ConfigArma(collision.tag);
     }
 }
