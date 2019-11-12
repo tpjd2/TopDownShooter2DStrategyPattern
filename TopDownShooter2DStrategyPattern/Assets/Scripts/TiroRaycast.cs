@@ -24,6 +24,8 @@ public class TiroRaycast : Arma, IArma
     IEnumerator TiroRaio()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(firePoint.position, firePoint.up);
+        linha.SetPosition(0, firePoint.position);
+        linha.SetPosition(1, firePoint.position + firePoint.up * 100);
 
         if (hitInfo)
         {
@@ -37,19 +39,8 @@ public class TiroRaycast : Arma, IArma
                 explosion.transform.position = hitInfo.point;
                 explosion.transform.rotation = hitInfo.transform.rotation;
 
-                linha.SetPosition(0, firePoint.position);
                 linha.SetPosition(1, hitInfo.point);
             }
-            else
-            {
-                linha.SetPosition(0, firePoint.position);
-                linha.SetPosition(1, firePoint.position + firePoint.up * 100);
-            }
-        }
-        else
-        {
-            linha.SetPosition(0, firePoint.position);
-            linha.SetPosition(1, firePoint.position + firePoint.up * 100);
         }
         linha.enabled = true;
         yield return new WaitForSeconds(0.02f);
