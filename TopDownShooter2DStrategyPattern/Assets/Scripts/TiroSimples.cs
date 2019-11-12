@@ -19,6 +19,7 @@ public class TiroSimples : Arma, IArma
     {
         GameObject bullet = Instantiate(Resources.Load("Bullet", typeof(GameObject)))
             as GameObject;
+        bullet.GetComponent<BulletController>().configDamage(damage);
         bullet.transform.position = firePoint.position;
         bullet.transform.rotation = firePoint.rotation;
         bullet.GetComponent<Rigidbody2D>().velocity = transform.up * speed;
